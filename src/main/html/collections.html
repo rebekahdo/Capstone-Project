@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Collections</title>
+  <!-- Add your stylesheets, scripts, or other dependencies here -->
+</head>
+
+<body>
+  <header>
+    <h1>My Collections</h1>
+  </header>
+
+  <main>
+    <section id="collections-list">
+      <!-- User's collections will be displayed here dynamically -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Book Search App</p>
+  </footer>
+
+  <!-- Add your scripts at the end of the body or use defer/async attributes -->
+  <script src="api.js"></script>
+  <script>
+    // Function to fetch and display user's collections
+    function fetchCollections() {
+      // Call your API function to fetch user's collections
+      const userCollections = getMyCollections(); // You need to implement this function in api.js
+
+      // Call a function to display the collections on the page
+      displayCollections(userCollections);
+    }
+
+    // Function to display user's collections on the page
+    function displayCollections(collections) {
+      const collectionsListSection = document.getElementById('collections-list');
+      
+      // Check if the user has collections
+      if (collections.length > 0) {
+        // Construct HTML to display collections
+        const collectionsHTML = collections.map(collection => `
+          <div>
+            <h2>${collection.name}</h2>
+            <p>Number of books: ${collection.books.length}</p>
+            <!-- Add more details or actions as needed -->
+          </div>
+        `).join('');
+
+        collectionsListSection.innerHTML = collectionsHTML;
+      } else {
+        // Display a message if the user has no collections
+        collectionsListSection.innerHTML = '<p>No collections found.</p>';
+      }
+    }
+
+    // Call the function to fetch and display user's collections when the page loads
+    window.onload = fetchCollections;
+  </script>
+</body>
+
+</html>
