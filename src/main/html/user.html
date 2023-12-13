@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <!-- Add your stylesheets, scripts, or other dependencies here -->
+</head>
+
+<body>
+  <header>
+    <h1>User Profile</h1>
+  </header>
+
+  <main>
+    <section id="user-details">
+      <!-- User's details will be displayed here dynamically -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Book Search App</p>
+  </footer>
+
+  <!-- Add your scripts at the end of the body or use defer/async attributes -->
+  <script src="api.js"></script>
+  <script>
+    // Example function to fetch and display user details
+    function fetchUserDetails() {
+      // Call your API function to fetch user details
+      const userDetails = getUserDetails(); // You need to implement this function in api.js
+
+      // Call a function to display the user details on the page
+      displayUserDetails(userDetails);
+    }
+
+    // Example function to display user details on the page
+    function displayUserDetails(userDetails) {
+      const userDetailsSection = document.getElementById('user-details');
+      
+      // Check if user details are available
+      if (userDetails) {
+        // Construct HTML to display user details
+        const userDetailsHTML = `
+          <div>
+            <h2>${userDetails.firstName} ${userDetails.lastName}</h2>
+            <p>Email: ${userDetails.email}</p>
+            <p>Username: ${userDetails.username}</p>
+            <!-- Add more details or actions as needed -->
+          </div>
+        `;
+
+        userDetailsSection.innerHTML = userDetailsHTML;
+      } else {
+        // Display a message if user details are not available
+        userDetailsSection.innerHTML = '<p>User details not found.</p>';
+      }
+    }
+
+    // Call the function to fetch and display user details when the page loads
+    window.onload = fetchUserDetails;
+  </script>
+</body>
+
+</html>
