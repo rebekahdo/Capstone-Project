@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
-  <!-- Add your stylesheets, scripts, or other dependencies here -->
+
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 
   <main>
     <section id="user-details">
-      <!-- User's details will be displayed here dynamically -->
+      <!-- User's details-->
     </section>
   </main>
 
@@ -23,25 +23,25 @@
     <p>&copy; 2023 Book Search App</p>
   </footer>
 
-  <!-- Add your scripts at the end of the body or use defer/async attributes -->
+  
   <script src="api.js"></script>
   <script>
-    // Example function to fetch and display user details
+    //function to fetch and display user details
     function fetchUserDetails() {
-      // Call your API function to fetch user details
-      const userDetails = getUserDetails(); // You need to implement this function in api.js
+      // Calls API function to get user details
+      const userDetails = getUserDetails(); 
 
-      // Call a function to display the user details on the page
+      
       displayUserDetails(userDetails);
     }
 
-    // Example function to display user details on the page
+    // function to display user details 
     function displayUserDetails(userDetails) {
       const userDetailsSection = document.getElementById('user-details');
       
       // Check if user details are available
       if (userDetails) {
-        // Construct HTML to display user details
+        // Constructs HTML to display
         const userDetailsHTML = `
           <div>
             <h2>${userDetails.firstName} ${userDetails.lastName}</h2>
